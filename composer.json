@@ -1,0 +1,23 @@
+{
+  "name": "whereof/laravel-hprose",
+  "description": "Laravel Hprose RPC 服务 in Laravel/Lumen",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "whereof",
+      "email": "wangzhiqiang1224@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "ext-json": "*",
+    "hprose/hprose": "v2.0.*",
+    "symfony/finder": "*",
+    "monolog/monolog": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "whereof\\hprose\\": "src/"
+    }
+  }
+}
