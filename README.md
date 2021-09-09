@@ -43,7 +43,7 @@ return [
 
 ## 日志记录 `/config/logging.php`
 ~~~
-  'channels' => [
+'channels' => [
      ............
      'hprose' => [
       	'driver' => 'daily',
