@@ -72,21 +72,42 @@ $app->register(\whereof\hprose\HproseServiceProvider::class);
 
 /路由注册 rpc/demo.php
 <?php
-\whereof\hprose\Facades\HproseRoute::add(function () {
+use whereof\hprose\Facades\HproseRoute;
+// 注册callback
+HproseRoute::add(function () {
     return 'service hello';
 }, 'hello');
-\whereof\hprose\Facades\HproseRoute::add(\whereof\hprose\Services\UserServer::class);
+// 注册class
+HproseRoute::add(\whereof\hprose\Services\UserServer::class);
+
+//注册中间价
+HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, Closure $next) {
+    \whereof\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
+    $result = $next($name, $args, $context);
+    return $result;
+});
 ~~~
 
 ## 服务端 方法注入，类注入以及目录下类注入
 
 ~~~
-\whereof\hprose\Facades\HproseRoute::add(function () {
+<?php
+
+use whereof\hprose\Facades\HproseRoute;
+// 注册callback
+HproseRoute::add(function () {
     return 'service hello';
 }, 'hello');
+// 注册class
+HproseRoute::add(\whereof\hprose\Services\UserServer::class);
 
-\whereof\hprose\Facades\HproseRoute::add(\whereof\hprose\Services\UserServer::class);
-
+//注册中间价
+HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, Closure $next) {
+    \whereof\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
+    $result = $next($name, $args, $context);
+    return $result;
+});
+// 注册整个目录
 \whereof\hprose\Facades\HproseRoute::addPath(app_path('Services'));
 ~~~
 
