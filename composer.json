@@ -1,6 +1,6 @@
 {
   "name": "whereof/laravel-hprose",
-  "description": "Laravel Hprose RPC 服务 in Laravel/Lumen",
+  "description": "Hprose RPC 服务 in Laravel/Lumen",
   "license": "MIT",
   "authors": [
     {
