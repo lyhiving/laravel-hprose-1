@@ -43,11 +43,14 @@ return [
 
 ## 日志记录 `/config/logging.php`
 ~~~
-'hprose' => [
-    'driver' => 'daily',
-    'path'   => storage_path('logs/hprose.log'),
-    'days'   => 14,
-],
+  'channels' => [
+     ............
+     'hprose' => [
+      	'driver' => 'daily',
+      	'path'   => storage_path('logs/hprose.log'),
+      	'days'   => 14,
+      ],
+]
 ~~~
 > 非强制配置，不配置，就会走默认的日志记录
 
