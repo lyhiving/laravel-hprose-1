@@ -42,9 +42,7 @@ class HproseServiceProvider extends ServiceProvider
         }
         $this->mergeConfigFrom($configsource, 'hprose');
 
-        if ($this->app->runningInConsole() || config('hprose.server.http.enable', false)) {
-            $this->loadRoute();
-        }
+        $this->loadRoute();
 
     }
 
@@ -140,6 +138,9 @@ class HproseServiceProvider extends ServiceProvider
                     require $file;
                 }
             }
+        }
+        if (is_string($files) && is_file($files)) {
+            require $files;
         }
     }
 

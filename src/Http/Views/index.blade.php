@@ -1,33 +1,28 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>whereof-laravel-hpose</title>
-    <!-- 引入 layui.css -->
-    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
-
-    <!-- 引入 layui.js -->
-    <script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>laravel-hprose</title>
 </head>
 <body>
-<div id="app">
-    <table class="layui-table">
-        <colgroup>
-            <col width="150">
-            <col width="200">
-            <col>
-        </colgroup>
-        <thead>
-        <tr>
-            <th>class</th>
-            <th>alias</th>
-            <th>method</th>
-            <th>arguments</th>
-            <th>使用</th>
-        </tr>
-        </thead>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">class</th>
+        <th scope="col">alias</th>
+        <th scope="col">method</th>
+        <th scope="col">arguments</th>
+        <th scope="col">使用</th>
+    </tr>
+    </thead>
+    @if(!empty($list))
         <tbody>
         @foreach ($list as $info)
             <tr>
@@ -47,7 +42,9 @@
             </tr>
         @endforeach
         </tbody>
-    </table>
-</div>
+    @endif
+</table>
+
+
 </body>
 </html>

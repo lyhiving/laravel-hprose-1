@@ -114,7 +114,7 @@ HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, 
 \whereof\hprose\Facades\HproseRoute::addPath(app_path('Services'));
 ~~~
 
->   使用addPath的时候要注意：在类中构造方法__construct 参数不能是必传参数，否则该类略过
+>   使用addPath的时候要注意：在类中构造方法__construct 参数不能是必传参数.
 >
 
 ## 启动rpc服务
