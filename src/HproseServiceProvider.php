@@ -16,6 +16,7 @@ use whereof\hprose\Support\LaravelHelper;
  */
 class HproseServiceProvider extends ServiceProvider
 {
+
     /**
      *
      */
@@ -41,7 +42,8 @@ class HproseServiceProvider extends ServiceProvider
             $this->app->configure('hprose');
         }
         $this->mergeConfigFrom($configsource, 'hprose');
-
+        // 守护进程sh
+        $this->publishes([realpath(__DIR__ . '/daemon.sh') => base_path('hprose.sh')]);
         $this->loadRoute();
 
     }

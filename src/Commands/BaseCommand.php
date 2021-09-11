@@ -31,6 +31,7 @@ class BaseCommand extends Command
             $this->line('前往http路由进行查看：' . '/' . config('hprose.server.http.route_prefix', 'rpc'));
             return;
         }
+        $this->output->newLine();
         $classMethodArgs = HproseRoute::getClassMethodArgs();
         if ($classMethodArgs) {
             foreach ($classMethodArgs as $arg) {
