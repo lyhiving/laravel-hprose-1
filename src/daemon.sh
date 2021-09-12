@@ -12,7 +12,7 @@ LOG="${WWWROOT}/vendor/whereof/laravel-hprose/${SERVICE_NAME}.log"
 #判断程序是否已经在运行
 status_script(){
     ps -fe|grep ${SCRIPT}|grep ${SERVICE_NAME}|grep -v grep
-    if [ $? -eq 0 ]
+    if [[ $? -eq 0 ]]
     then
         echo ${0}' Is running'
         running=1
@@ -26,7 +26,7 @@ status_script(){
 #启动脚本，先判断脚本是否已经在运行
 start_script(){
 status_script
-    if [ ${running} -eq 1 ]
+    if [[ ${running} -eq 1 ]]
     then
         echo ${0}' Is starting ...'
     else
@@ -42,7 +42,7 @@ status_script
 #停止脚本
 stop_script(){
 status_script
-    if [ ${running} -ne 1 ]
+    if [[ ${running} -ne 1 ]]
     then
         echo ${0}' no starting '$?...
     else
@@ -64,9 +64,8 @@ reload_script(){
     start_script
 }
 
-
-
-if [ $# -eq 1 ]
+# 入口程序
+if [[ $# -eq 1 ]]
 then
     case $1 in
     start)
