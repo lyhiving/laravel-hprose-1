@@ -43,7 +43,7 @@ class HproseServiceProvider extends ServiceProvider
         }
         $this->mergeConfigFrom($configsource, 'hprose');
         // 守护进程sh
-        $this->publishes([realpath(__DIR__ . '/daemon.sh') => base_path('hprose.sh')]);
+        // $this->publishes([realpath(__DIR__ . '/daemon.sh') => base_path('hprose.sh')]);
         $this->loadRoute();
 
     }
