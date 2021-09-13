@@ -17,7 +17,7 @@ class SocketCommand extends BaseCommand
     /**
      * @var string
      */
-    protected $description = 'hprose rpc socket 服务 [start|stop|status|daemon]';
+    protected $description = 'hprose rpc socket 服务 [start|stop|status|daemon|restart]';
 
     public function handle()
     {
@@ -34,6 +34,9 @@ class SocketCommand extends BaseCommand
             case "daemon":
                 $this->daemon();
                 break;
+            case "restart":
+                $this->restart();
+                break;
         }
     }
 
@@ -41,6 +44,13 @@ class SocketCommand extends BaseCommand
     {
         $this->printLog();
         app('hprose.socket.server')->start();
+    }
+
+    public function restart()
+    {
+        $this->stop();
+        sleep(2);
+        $this->daemon();
     }
 
     public function stop()
