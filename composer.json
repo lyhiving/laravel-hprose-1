@@ -11,7 +11,9 @@
   "require": {
     "php": ">=7.0.0",
     "ext-json": "*",
-    "hprose/hprose": "v2.0.*"
+    "hprose/hprose": "v2.0.*",
+    "ext-pcntl": "*",
+    "ext-posix": "*"
   },
   "require-dev": {
     "symfony/finder": "*",

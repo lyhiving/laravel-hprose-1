@@ -28,6 +28,14 @@ class LaravelHelper
     }
 
     /**
+     * @return mixed
+     */
+    public static function pidfile()
+    {
+        return config('hprose.server.daemon.pid', dirname(__FILE__, '3') . '/hprose:socket.pid');
+    }
+
+    /**
      * @param $message
      * @param string $level
      * @param array $context
