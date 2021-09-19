@@ -6,6 +6,12 @@ use Closure;
 
 
 /**
+ * Route::prefix(config('hprose.server.http.route_prefix', 'rpc'))
+ * ->middleware(["whereof\hprose\Http\Middlewares\ViewMiddleware::class"])
+ * ->namespace('whereof\hprose\Http\Controller')
+ * ->group(function (\Illuminate\Routing\Router $router) {
+ * $router->get('/', [\whereof\hprose\Http\Controller\IndexController::class, 'index']);
+ * });
  * Class ViewMiddleware
  * @package whereof\hprose\Http\Middlewares
  */

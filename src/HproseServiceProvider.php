@@ -34,7 +34,7 @@ class HproseServiceProvider extends ServiceProvider
             $this->publishes([$route => base_path('rpc/demo.php')]);
             // http 查看注册方法
             if (config('hprose.server.http.enable', false)) {
-                $this->rpcHttp();
+                $this->registerRoutes();
             }
         }
         //Lumen
@@ -149,13 +149,12 @@ class HproseServiceProvider extends ServiceProvider
     /**
      * http 请求
      */
-    public function rpcHttp()
+    public function registerRoutes()
     {
-        Route::prefix(config('hprose.server.http.route_prefix', 'rpc'))
-            ->middleware(["whereof\hprose\Http\Middlewares\ViewMiddleware::class"])
-            ->namespace('whereof\hprose\Http\Controller')
-            ->group(function () {
-                require realpath(__DIR__ . '/Http/web.php');
+        $this->loadViewsFrom(__DIR__ . '/Http/Views/', 'hprose');
+        Route::prefix(config('hprose.server.http.route_prefix', 'hprose'))
+            ->group(function (\Illuminate\Routing\Router $router) {
+                $router->get('/', [\whereof\hprose\Http\Controller\IndexController::class, 'index']);
             });
     }
 

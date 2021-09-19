@@ -17,6 +17,6 @@ class IndexController extends Controller
     public function index()
     {
         $list = HproseRoute::getClassMethodArgs();
-        return view('index', ['list' => $list]);
+        return view('hprose::index', ['list' => $list]);
     }
 }
