@@ -13,10 +13,10 @@
     "ext-json": "*",
     "hprose/hprose": "v2.0.*",
     "ext-pcntl": "*",
-    "ext-posix": "*"
+    "ext-posix": "*",
+    "symfony/finder": "*"
   },
   "require-dev": {
-    "symfony/finder": "*",
     "laravel/framework": "^6|^7|^8",
     "laravel/lumen-framework": "^6|^7|^8",
     "phpunit/phpunit": "^6|^7|^8|^9"
