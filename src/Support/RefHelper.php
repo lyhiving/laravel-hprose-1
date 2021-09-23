@@ -1,14 +1,14 @@
 <?php
 
 
-namespace whereof\hprose\Support;
+namespace whereof\laravel\hprose\Support;
 
 
 use ReflectionMethod;
 
 /**
  * Class Ref
- * @package whereof\hprose\Support
+ * @package whereof\laravel\hprose\Support
  */
 class RefHelper
 {

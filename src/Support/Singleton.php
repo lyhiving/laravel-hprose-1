@@ -1,12 +1,12 @@
 <?php
 
 
-namespace whereof\hprose\Support;
+namespace whereof\laravel\hprose\Support;
 
 
 /**
  * Trait Singleton
- * @package whereof\hprose\Support
+ * @package whereof\laravel\hprose\Support
  */
 trait Singleton
 {

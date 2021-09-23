@@ -1,14 +1,14 @@
 <?php
 
 
-namespace whereof\hprose\Support;
+namespace whereof\laravel\hprose\Support;
 
 use Illuminate\Support\Facades\Log;
 
 
 /**
  * Class LaravelHelper
- * @package whereof\hprose\Support
+ * @package whereof\laravel\hprose\Support
  */
 class LaravelHelper
 {

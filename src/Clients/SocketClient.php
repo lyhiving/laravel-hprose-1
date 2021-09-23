@@ -1,13 +1,13 @@
 <?php
 
-namespace whereof\hprose\Clients;
+namespace whereof\laravel\hprose\Clients;
 
 use Hprose\Socket\Client;
 
 
 /**
  * Class SocketClient
- * @package whereof\hprose\Clients
+ * @package whereof\laravel\hprose\Clients
  */
 class SocketClient extends Client
 {

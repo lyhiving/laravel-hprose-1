@@ -1,12 +1,12 @@
 <?php
 
 
-namespace whereof\hprose\Support;
+namespace whereof\laravel\hprose\Support;
 
 
 /**
  * Class Uris
- * @package whereof\hprose\Support
+ * @package whereof\laravel\hprose\Support
  */
 class Uris
 {

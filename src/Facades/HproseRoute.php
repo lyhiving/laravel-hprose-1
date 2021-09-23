@@ -1,14 +1,14 @@
 <?php
 
-namespace whereof\hprose\Facades;
+namespace whereof\laravel\hprose\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use whereof\hprose\Routing\Router;
+use whereof\laravel\hprose\Routing\Router;
 
 
 /**
  * Class HproseRoute
- * @package whereof\hprose\Facades
+ * @package whereof\laravel\hprose\Facades
  * @method static Router add($action, $name = '', array $options = [])
  * @method static Router addPath($path)
  * @method static Router getClassMethodArgs()

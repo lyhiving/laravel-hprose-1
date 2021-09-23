@@ -1,12 +1,12 @@
 <?php
 
-namespace whereof\hprose\Commands;
+namespace whereof\laravel\hprose\Commands;
 
-use whereof\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\LaravelHelper;
 
 /**
  * Class SocketCommand
- * @package whereof\hprose\Commands
+ * @package whereof\laravel\hprose\Commands
  */
 class SocketCommand extends BaseCommand
 {

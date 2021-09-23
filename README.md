@@ -60,9 +60,9 @@ return [
 //在 `config/app.php` 注册 HproseServiceProvider 
 'providers' => [
     .....
-    \whereof\hprose\HproseServiceProvider::class
+    \whereof\laravel\hprose\HproseServiceProvider::class
 ]
-php artisan vendor:publish --provider="whereof\hprose\HproseServiceProvider"
+php artisan vendor:publish --provider="whereof\laravel\hprose\HproseServiceProvider"
 ~~~
 
 ## Lumen配置
@@ -71,21 +71,21 @@ php artisan vendor:publish --provider="whereof\hprose\HproseServiceProvider"
 将配置信息放在/config/hprose.php
 
 /bootstrap/app.php
-$app->register(\whereof\hprose\HproseServiceProvider::class);
+$app->register(\whereof\laravel\hprose\HproseServiceProvider::class);
 
 /路由注册 rpc/demo.php
 <?php
-use whereof\hprose\Facades\HproseRoute;
+use whereof\laravel\hprose\Facades\HproseRoute;
 // 注册callback
 HproseRoute::add(function () {
     return 'service hello';
 }, 'hello');
 // 注册class
-HproseRoute::add(\whereof\hprose\Services\UserServer::class);
+HproseRoute::add(\whereof\laravel\hprose\Services\UserServer::class);
 
 //注册中间价
 HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, Closure $next) {
-    \whereof\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
+    \whereof\laravel\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
     $result = $next($name, $args, $context);
     return $result;
 });
@@ -96,22 +96,22 @@ HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, 
 ~~~
 <?php
 
-use whereof\hprose\Facades\HproseRoute;
+use whereof\laravel\hprose\Facades\HproseRoute;
 // 注册callback
 HproseRoute::add(function () {
     return 'service hello';
 }, 'hello');
 // 注册class
-HproseRoute::add(\whereof\hprose\Services\UserServer::class);
+HproseRoute::add(\whereof\laravel\hprose\Services\UserServer::class);
 
 //注册中间价
 HproseRoute::addInvokeHandler(function ($name, array &$args, stdClass $context, Closure $next) {
-    \whereof\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
+    \whereof\laravel\hprose\Support\LaravelHelper::log('调用的远程函数/方法名:' . $name, 'debug', $args);
     $result = $next($name, $args, $context);
     return $result;
 });
 // 注册整个目录
-\whereof\hprose\Facades\HproseRoute::addPath(app_path('Services'));
+HproseRoute::addPath(app_path('Services'));
 ~~~
 
 >   使用addPath的时候要注意：在类中构造方法__construct 参数不能是必传参数.
@@ -127,7 +127,7 @@ php artisan hprose:socket
 
 ~~~
 $uris =['tcp://127.0.0.1:1314'];
-$client = new \whereof\hprose\Clients\SocketClient($uris, false);
+$client = new \whereof\laravel\hprose\Clients\SocketClient($uris, false);
 $client->hello()
 $client->whereof_hprose_demoService->kan()
 

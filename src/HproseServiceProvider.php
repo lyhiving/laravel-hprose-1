@@ -1,18 +1,18 @@
 <?php
 
-namespace whereof\hprose;
+namespace whereof\laravel\hprose;
 
 use Illuminate\Support\ServiceProvider;
-use whereof\hprose\Clients\SocketClient;
-use whereof\hprose\Commands\SocketCommand;
-use whereof\hprose\Routing\Router;
-use whereof\hprose\Servers\SocketServer;
+use whereof\laravel\hprose\Clients\SocketClient;
+use whereof\laravel\hprose\Commands\SocketCommand;
+use whereof\laravel\hprose\Routing\Router;
+use whereof\laravel\hprose\Servers\SocketServer;
 use Illuminate\Support\Facades\Route;
-use whereof\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\LaravelHelper;
 
 /**
  * Class HproseServiceProvider
- * @package whereof\hprose
+ * @package whereof\laravel\hprose
  */
 class HproseServiceProvider extends ServiceProvider
 {
@@ -154,7 +154,7 @@ class HproseServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/Http/Views/', 'hprose');
         Route::prefix(config('hprose.server.http.route_prefix', 'hprose'))
             ->group(function (\Illuminate\Routing\Router $router) {
-                $router->get('/', [\whereof\hprose\Http\Controller\IndexController::class, 'index']);
+                $router->get('/', [\whereof\laravel\hprose\Http\Controller\IndexController::class, 'index']);
             });
     }
 

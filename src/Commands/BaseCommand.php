@@ -1,16 +1,16 @@
 <?php
 
 
-namespace whereof\hprose\Commands;
+namespace whereof\laravel\hprose\Commands;
 
-use whereof\hprose\Facades\HproseRoute;
+use whereof\laravel\hprose\Facades\HproseRoute;
 use Illuminate\Console\Command;
-use whereof\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\LaravelHelper;
 
 
 /**
  * Class BaseCommand
- * @package whereof\hprose\Commands
+ * @package whereof\laravel\hprose\Commands
  */
 class BaseCommand extends Command
 {

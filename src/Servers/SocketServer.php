@@ -1,13 +1,13 @@
 <?php
 
-namespace whereof\hprose\Servers;
+namespace whereof\laravel\hprose\Servers;
 
 use Hprose\Socket\Server;
 
 
 /**
  * Class SocketServer
- * @package whereof\hprose\Servers
+ * @package whereof\laravel\hprose\Servers
  */
 class SocketServer extends Server
 {

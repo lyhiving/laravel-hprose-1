@@ -1,16 +1,16 @@
 <?php
 
 
-namespace whereof\hprose\Filter;
+namespace whereof\laravel\hprose\Filter;
 
 
 use Hprose\Filter;
 use stdClass;
-use whereof\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\LaravelHelper;
 
 /**
  * Class SizeFilter
- * @package whereof\hprose\Filter
+ * @package whereof\laravel\hprose\Filter
  */
 class SizeFilter implements Filter
 {

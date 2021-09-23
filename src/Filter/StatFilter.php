@@ -1,7 +1,7 @@
 <?php
 
 
-namespace whereof\hprose\Filter;
+namespace whereof\laravel\hprose\Filter;
 
 use Hprose\Filter;
 use stdClass;
@@ -9,7 +9,7 @@ use stdClass;
 /**
  * 运行时间统计
  * Class StatFilter
- * @package whereof\hprose\Filter
+ * @package whereof\laravel\hprose\Filter
  */
 class StatFilter implements Filter
 {

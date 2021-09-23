@@ -1,12 +1,12 @@
 <?php
 
 
-namespace whereof\hprose\Services;
+namespace whereof\laravel\hprose\Services;
 
 
 /**
  * Class UserServer
- * @package whereof\hprose\Services
+ * @package whereof\laravel\hprose\Services
  */
 class UserServer
 {

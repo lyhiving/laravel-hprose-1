@@ -1,13 +1,13 @@
 <?php
 
-namespace whereof\hprose\Http\Controller;
+namespace whereof\laravel\hprose\Http\Controller;
 
 use Illuminate\Routing\Controller;
-use whereof\hprose\Facades\HproseRoute;
+use whereof\laravel\hprose\Facades\HproseRoute;
 
 /**
  * Class IndexController
- * @package whereof\hprose\Http\Controller
+ * @package whereof\laravel\hprose\Http\Controller
  */
 class IndexController extends Controller
 {

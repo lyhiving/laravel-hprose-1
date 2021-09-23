@@ -1,13 +1,13 @@
 <?php
 
-namespace whereof\hprose\Routing;
+namespace whereof\laravel\hprose\Routing;
 
-use whereof\hprose\Support\MemoryStorage;
-use whereof\hprose\Support\RefHelper;
+use whereof\laravel\hprose\Support\MemoryStorage;
+use whereof\laravel\hprose\Support\RefHelper;
 
 /**
  * Class Router
- * @package whereof\hprose\Routing
+ * @package whereof\laravel\hprose\Routing
  */
 class Router
 {

@@ -1,17 +1,17 @@
 <?php
 
 
-namespace whereof\hprose\Filter;
+namespace whereof\laravel\hprose\Filter;
 
 
 use Hprose\Filter;
 use stdClass;
-use whereof\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\LaravelHelper;
 
 /**
  * 日志跟踪调试
  * Class LogFilter
- * @package whereof\hprose\Filter
+ * @package whereof\laravel\hprose\Filter
  */
 class LogFilter implements Filter
 {
