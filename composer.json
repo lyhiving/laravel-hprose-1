@@ -25,5 +25,10 @@
     "psr-4": {
       "whereof\\laravel\\hprose\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "whereof\\laravel\\Test\\": "tests/"
+    }
   }
 }
