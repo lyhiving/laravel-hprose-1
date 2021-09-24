@@ -6,6 +6,7 @@ namespace whereof\laravel\hprose\Commands;
 use whereof\laravel\hprose\Facades\HproseRoute;
 use Illuminate\Console\Command;
 use whereof\laravel\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\PidManager;
 
 
 /**
@@ -16,9 +17,17 @@ class BaseCommand extends Command
 {
 
     /**
+     * @return PidManager
+     */
+    protected function pid()
+    {
+        return PidManager::getInstance(LaravelHelper::pidfile());
+    }
+
+    /**
      * 打印日志
      */
-    public function printLog()
+    protected function printLog()
     {
         $this->output->writeln(LaravelHelper::version());
         $this->output->newLine();

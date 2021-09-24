@@ -5,12 +5,13 @@ namespace whereof\laravel\hprose\Support;
 
 
 use ReflectionMethod;
+use whereof\Helper\FileHelper;
 
 /**
  * Class Ref
  * @package whereof\laravel\hprose\Support
  */
-class RefHelper
+class AliasArgs
 {
     use Singleton;
 
@@ -47,7 +48,7 @@ class RefHelper
                     $result[] = [
                         'class'  => $action,
                         'method' => $method->getName(),
-                        'alias'  => $this->namespaceSlash2nderscore($action),
+                        'alias'  => strtolower($this->namespaceSlash2nderscore($action)),
                         'args'   => $this->getRefParameterArr($ref->getMethod($method->getName())->getParameters())
                     ];
                 }
@@ -72,11 +73,10 @@ class RefHelper
      */
     public function getNameSpaceClass($path)
     {
-        $finder = new \Symfony\Component\Finder\Finder();
-        $finder->files()->in($path)->files()->name(['*.php']);
+        $phpfiles       = FileHelper::filterExtPath($path, ['php']);
         $namespaceClass = [];
-        foreach ($finder as $file) {
-            $namespaceClass[] = $this->fileNameSpaceClass($file->getRealPath());
+        foreach ($phpfiles as $file) {
+            $namespaceClass[] = FileHelper::phpFileNameSpaceClass($file['pathname']);
         }
         return $namespaceClass;
     }
@@ -119,40 +119,5 @@ class RefHelper
     protected function getRefParameterArr($object, $column = 'name')
     {
         return array_column(json_decode(json_encode($object), true), $column);
-    }
-
-    /**
-     * @param $file
-     * @return bool|mixed|string
-     */
-    protected function fileNameSpaceClass($file)
-    {
-        if (is_file($file)) {
-            $namespace         = $class = "";
-            $getting_namespace = $getting_class = false;
-            foreach (token_get_all(file_get_contents($file)) as $token) {
-                if (is_array($token) && $token[0] == T_NAMESPACE) {
-                    $getting_namespace = true;
-                }
-                if (is_array($token) && $token[0] == T_CLASS) {
-                    $getting_class = true;
-                }
-                if ($getting_namespace === true) {
-                    if (is_array($token) && in_array($token[0], [T_STRING, T_NS_SEPARATOR])) {
-                        $namespace .= $token[1];
-                    } else if ($token === ';') {
-                        $getting_namespace = false;
-                    }
-                }
-                if ($getting_class === true) {
-                    if (is_array($token) && $token[0] == T_STRING) {
-                        $class = $token[1];
-                        break;
-                    }
-                }
-            }
-            return $namespace ? $namespace . '\\' . $class : $class;
-        }
-        return '';
     }
 }

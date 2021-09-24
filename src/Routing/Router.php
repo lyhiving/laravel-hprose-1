@@ -3,7 +3,7 @@
 namespace whereof\laravel\hprose\Routing;
 
 use whereof\laravel\hprose\Support\MemoryStorage;
-use whereof\laravel\hprose\Support\RefHelper;
+use whereof\laravel\hprose\Support\AliasArgs;
 
 /**
  * Class Router
@@ -18,7 +18,7 @@ class Router
      */
     public function addPath($path)
     {
-        $in_class = RefHelper::getInstance()->getNameSpaceClass($path);
+        $in_class = AliasArgs::getInstance()->getNameSpaceClass($path);
         if (!empty($in_class)) {
             foreach ($in_class as $class) {
                 $this->add($class);
@@ -35,7 +35,7 @@ class Router
      */
     public function add($action, string $alias = '', array $options = [])
     {
-        $actionAliasArgs = RefHelper::getInstance()->actionAliasArgs($action, $alias);
+        $actionAliasArgs = AliasArgs::getInstance()->actionAliasArgs($action, $alias);
         if (!empty($actionAliasArgs['sign']) && $actionAliasArgs['sign'] === 'callable') {
             unset($actionAliasArgs['sign']);
             MemoryStorage::getInstance()->push($actionAliasArgs);
