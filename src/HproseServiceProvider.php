@@ -3,12 +3,12 @@
 namespace whereof\laravel\hprose;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 use whereof\laravel\hprose\Clients\SocketClient;
 use whereof\laravel\hprose\Commands\SocketCommand;
 use whereof\laravel\hprose\Routing\Router;
 use whereof\laravel\hprose\Servers\SocketServer;
-use Illuminate\Support\Facades\Route;
-use whereof\laravel\hprose\Support\LaravelHelper;
+use whereof\laravel\hprose\Support\{PidManager, LaravelHelper};
 
 /**
  * Class HproseServiceProvider
@@ -32,8 +32,8 @@ class HproseServiceProvider extends ServiceProvider
             $this->publishes([$configsource => config_path('hprose.php')]);
             $route = realpath(__DIR__ . '/rpc.php');
             $this->publishes([$route => base_path('rpc/demo.php')]);
-            // http 查看注册方法
-            if (config('hprose.server.http.enable', false)) {
+            // http 查看注册方法 (command运行状态下)
+            if (PidManager::getInstance(LaravelHelper::pidfile())->getPid() && config('hprose.server.http.enable', false)) {
                 $this->registerRoutes();
             }
         }

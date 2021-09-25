@@ -2,8 +2,7 @@
 
 namespace whereof\laravel\hprose\Routing;
 
-use whereof\laravel\hprose\Support\MemoryStorage;
-use whereof\laravel\hprose\Support\AliasArgs;
+use whereof\laravel\hprose\Support\{MemoryStorage, AliasArgs};
 
 /**
  * Class Router
