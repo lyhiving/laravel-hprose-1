@@ -1,3 +1,6 @@
+[![Latest Stable Version](http://poser.pugx.org/whereof/laravel-hprose/v)](https://packagist.org/packages/whereof/laravel-hprose) [![Total Downloads](http://poser.pugx.org/whereof/laravel-hprose/downloads)](https://packagist.org/packages/whereof/laravel-hprose) [![Latest Unstable Version](http://poser.pugx.org/whereof/laravel-hprose/v/unstable)](https://packagist.org/packages/whereof/laravel-hprose) [![License](http://poser.pugx.org/whereof/laravel-hprose/license)](https://packagist.org/packages/whereof/laravel-hprose) [![PHP Version Require](http://poser.pugx.org/whereof/laravel-hprose/require/php)](https://packagist.org/packages/whereof/laravel-hprose)
+
+
 基于 [hprose/hprose-php](https://github.com/hprose/hprose-php) 开发的Laravel扩展：[whereof/laravel-hprose](https://github.com/whereof/laravel-hprose)
 
 
