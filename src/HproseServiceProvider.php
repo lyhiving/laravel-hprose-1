@@ -32,8 +32,8 @@ class HproseServiceProvider extends ServiceProvider
             $this->publishes([$configsource => config_path('hprose.php')]);
             $route = realpath(__DIR__ . '/rpc.php');
             $this->publishes([$route => base_path('rpc/demo.php')]);
-            // http 查看注册方法 (command运行状态下)
-            if (PidManager::getInstance(LaravelHelper::pidfile())->getPid() && config('hprose.server.http.enable', false)) {
+            // http 查看注册方法
+            if (config('hprose.server.http.enable', false)) {
                 $this->registerRoutes();
             }
         }
