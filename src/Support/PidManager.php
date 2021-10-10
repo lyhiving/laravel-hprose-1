@@ -3,7 +3,6 @@
 
 namespace whereof\laravel\hprose\Support;
 
-
 /**
  * Class PidManager
  * @package whereof\laravel\hprose\Support
@@ -16,13 +15,18 @@ class PidManager
      */
     protected $file;
 
-
     /**
      * PidManager constructor.
      * @param $file
      */
     public function __construct($file)
     {
+        if (!in_array("pcntl", get_loaded_extensions())) {
+            throw new \RuntimeException('pcntl Extension Not Install');
+        }
+        if (!in_array("posix", get_loaded_extensions())) {
+            throw new \RuntimeException('posix Extension Not Install');
+        }
         $this->file = $file;
     }
 

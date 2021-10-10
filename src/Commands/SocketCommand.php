@@ -1,9 +1,6 @@
 <?php
 
 namespace whereof\laravel\hprose\Commands;
-
-use whereof\laravel\hprose\Support\LaravelHelper;
-
 /**
  * Class SocketCommand
  * @package whereof\laravel\hprose\Commands
