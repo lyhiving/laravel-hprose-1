@@ -150,12 +150,8 @@ app('hprose.socket.client')->hello()
 如果你认可我们的开源项目，有兴趣为 laravel-hprose 的发展做贡献，竭诚欢迎加入我们一起开发完善。无论是[报告错误](https://github.com/whereof/laravel-hprose/issues)或是 Pull Request 开发，那怕是修改一个错别字也是对我们莫大的帮助。
 
 
-
-##  联系信息
-
-- 电子邮箱：[wangzhiqiang1224@gmail.com](mailto:wangzhiqiang1224@gmail.com)
-- WeChat：wangzhiqiang992
-
+##  关于我
+https://github.com/whereof/whereof
 
 ##  许可协议
 [MIT](https://opensource.org/licenses/MIT)
